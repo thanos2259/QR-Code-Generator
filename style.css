@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    display: flex;
+    padding: 0 10px;
+    min-height: 100vh;
+    align-items: center;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    justify-content: center;
+    color: #fff;
+}
+
+.wrapper {
+    max-width: 450px;
+    background: #1c1c1c;
+    border-radius: 15px;
+    padding: 25px 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: height 0.3s ease;
+    height: 320px;
+    /* Set initial height */
+    overflow: hidden;
+    /* Hide overflow when height changes */
+}
+
+.wrapper.active {
+    height: 550px;
+    /* Height when QR code is generated */
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+header img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+    border-radius: 10px;
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+}
+
+header p {
+    margin-top: 5px;
+    color: #bbb;
+    font-size: 16px;
+}
+
+.form {
+    margin: 25px 0 30px;
+}
+
+.form :where(input, button) {
+    width: 100%;
+    height: 55px;
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    transition: 0.2s ease;
+}
+
+.form input {
+    font-size: 18px;
+    padding: 0 17px;
+    border: 2px solid #555;
+    color: #fff;
+    background: #333;
+}
+
+.form input:focus {
+    border-color: #a777e3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.form input::placeholder {
+    color: #aaa;
+}
+
+.form button {
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 18px;
+    background: #5a5a5a;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.form button:hover {
+    background: #444;
+}
+
+.form button:active {
+    transform: scale(0.95);
+}
+
+.qr-code {
+    opacity: 0;
+    display: flex;
+    padding: 35px 0;
+    border-radius: 10px;
+    align-items: center;
+    pointer-events: none;
+    justify-content: center;
+    border: 2px dashed #666;
+    background: #2c2c2c;
+}
+
+.wrapper.active .qr-code {
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 0.5s 0.1s ease;
+}
+
+.qr-code img {
+    width: 180px;
+    border-radius: 10px;
+}
+
+@media (max-width: 430px) {
+    .wrapper {
+        padding: 20px 25px;
+    }
+
+    .wrapper.active {
+        height: 520px;
+    }
+
+    header img {
+        width: 35px;
+        height: 35px;
+    }
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    header p {
+        color: #888;
+    }
+
+    .form :where(input, button) {
+        height: 50px;
+    }
+
+    .qr-code img {
+        width: 160px;
+    }
+}
